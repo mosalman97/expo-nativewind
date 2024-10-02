@@ -25,7 +25,9 @@ const index = () => {
           />
         </View>
       </View>
-      <PlainButton title={"Get Started"} href={"/register"} />
+      <Link asChild href={"/register"}>
+        <PlainButton title={"Get Started"} />
+      </Link>
     </View>
   );
 };

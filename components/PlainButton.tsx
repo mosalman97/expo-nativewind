@@ -4,22 +4,22 @@ import { Link } from "expo-router";
 
 const PlainButton = ({
   title,
-  href,
   style,
+  onPress,
 }: {
   title: string;
   href?: any;
   style?: StyleSheet;
+  onPress?: () => void;
 }) => {
   return (
-    <Link href={href} asChild>
-      <TouchableOpacity
-        hitSlop={0.8}
-        className="w[315px] h-[60px] bg-blue-600 rounded-full justify-center items-center"
-      >
-        <Text className="font-extrabold text-lg text-white">{title}</Text>
-      </TouchableOpacity>
-    </Link>
+    <TouchableOpacity
+      hitSlop={0.8}
+      className="w[315px] h-[60px] bg-blue-600 rounded-full justify-center items-center"
+      onPress={onPress}
+    >
+      <Text className="font-extrabold text-lg text-white">{title}</Text>
+    </TouchableOpacity>
   );
 };
 
