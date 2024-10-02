@@ -2,6 +2,7 @@ import { View, Text, SafeAreaView, TextInput, Image } from "react-native";
 import React from "react";
 import { StatusBar } from "react-native";
 import { PlainButton } from "@/components";
+import { Link } from "expo-router";
 
 const Register = () => {
   return (
@@ -33,7 +34,7 @@ const Register = () => {
         </View>
       </View>
       <View>
-        <PlainButton title="Register" />
+        <PlainButton title="Register" href={"/login"} />
         <View className="flex flex-row justify-center items-center mt-[20px] mb-[20px]">
           <View className="w-[140px] h-[2px] bg-gray-300 rounded-lg"></View>
           <Text className="text-black text-md mx-[14px]">Or</Text>

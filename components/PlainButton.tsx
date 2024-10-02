@@ -1,6 +1,6 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { Href, useRouter } from "expo-router";
+import { Link } from "expo-router";
 
 const PlainButton = ({
   title,
@@ -11,19 +11,15 @@ const PlainButton = ({
   href?: any;
   style?: StyleSheet;
 }) => {
-  const router = useRouter();
   return (
-    <TouchableOpacity
-      hitSlop={0.8}
-      className="w[315px] h-[60px] bg-blue-600 rounded-full justify-center items-center"
-      onPress={() => {
-        if (href) {
-          router.push(href);
-        }
-      }}
-    >
-      <Text className="font-extrabold text-lg text-white">{title}</Text>
-    </TouchableOpacity>
+    <Link href={href} asChild>
+      <TouchableOpacity
+        hitSlop={0.8}
+        className="w[315px] h-[60px] bg-blue-600 rounded-full justify-center items-center"
+      >
+        <Text className="font-extrabold text-lg text-white">{title}</Text>
+      </TouchableOpacity>
+    </Link>
   );
 };
 
