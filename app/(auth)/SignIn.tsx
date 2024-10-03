@@ -1,14 +1,6 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { CustomButton, CustomInput } from "@/components";
-import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "expo-router";
 
 // inputlist data

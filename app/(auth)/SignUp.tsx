@@ -1,15 +1,32 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TextInput, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import { CustomButton } from "@/components";
+import { CustomButton, CustomInput } from "@/components";
 import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "expo-router";
+
+// inputlist data
+const inputList = [
+  {
+    id: "name",
+    placeHolder: "Full Name",
+    icon: require("../../assets/user-icon.png"),
+  },
+  {
+    id: "phone",
+    placeHolder: "Phone Number",
+    icon: require("../../assets/phone-icon.png"),
+  },
+  {
+    id: "email",
+    placeHolder: "Email",
+    icon: require("../../assets/email-icon.png"),
+  },
+  {
+    id: "password",
+    placeHolder: "Password",
+    icon: require("../../assets/lock-icon.png"),
+  },
+];
 
 type FormFields = {
   name: string;
@@ -37,105 +54,19 @@ const SignUp = () => {
           <Text className="text-black text-2xl">Create an Account</Text>
         </View>
         <View>
-          <Controller
-            control={control}
-            rules={{
-              required: true,
-            }}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <View className="flex flex-row justify-between bg-gray-100 px-5 py-4 rounded-xl mb-[18px]">
-                <TextInput
-                  autoCapitalize={"none"}
-                  placeholder="Full Name"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                />
-                {errors.name && (
-                  <Text className="text-red-600 font-medium">
-                    name missing!
-                  </Text>
-                )}
-              </View>
-            )}
-            name="name"
-          />
-          <Controller
-            control={control}
-            rules={{
-              required: true,
-              maxLength: 10,
-            }}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <View className="flex flex-row justify-between bg-gray-100 px-5 py-4 rounded-xl mb-[18px]">
-                <TextInput
-                  autoCapitalize={"none"}
-                  placeholder="Phone Number"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                />
-                {errors.phoneNumber && (
-                  <Text className="text-red-600 font-medium">
-                    number missing!
-                  </Text>
-                )}
-              </View>
-            )}
-            name="phoneNumber"
-          />
-          <Controller
-            control={control}
-            rules={{
-              required: true,
-              pattern:
-                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            }}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <View className="flex flex-row justify-between bg-gray-100 px-5 py-4 rounded-xl mb-[18px]">
-                <TextInput
-                  autoCapitalize={"none"}
-                  placeholder="Email"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                />
-                {errors.email && (
-                  <Text className="text-red-600 font-medium">
-                    email missing!
-                  </Text>
-                )}
-              </View>
-            )}
-            name="email"
-          />
-          <Controller
-            control={control}
-            rules={{
-              required: true,
-              pattern:
-                /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/,
-            }}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <View className="flex flex-row justify-between  bg-gray-100 px-4 py-4 rounded-xl mb-[18px]">
-                <TextInput
-                  className="w-[50%]"
-                  autoCapitalize={"none"}
-                  secureTextEntry={true}
-                  placeholder="Password"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                />
-                {errors.password && (
-                  <Text className="text-red-600 font-medium w-[40%]">
-                    password missing!
-                  </Text>
-                )}
-              </View>
-            )}
-            name="password"
-          />
+          <View className="items-center justify-center">
+            {inputList.map((data, index) => (
+              <CustomInput
+                placeHolder={data.placeHolder}
+                key={index}
+                leftIcon={data.icon}
+                containerStyle={{
+                  marginBottom: 18,
+                  width: 340,
+                }}
+              />
+            ))}
+          </View>
           <View className="flex flex-row mt-[8px]">
             <TouchableOpacity
               onPress={() => {
