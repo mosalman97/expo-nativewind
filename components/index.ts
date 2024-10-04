@@ -1,3 +1,4 @@
-import PlainButton from "./PlainButton";
+import CustomButton from "./CustomButton";
+import CustomInput from "./CustomInput";
 
-export { PlainButton };
+export { CustomButton, CustomInput };

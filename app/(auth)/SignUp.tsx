@@ -7,8 +7,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
-import { PlainButton } from "@/components";
+import { CustomButton } from "@/components";
 import { useForm, Controller } from "react-hook-form";
+import { useRouter } from "expo-router";
 
 type FormFields = {
   name: string;
@@ -17,12 +18,13 @@ type FormFields = {
   password: string;
 };
 
-const Register = () => {
+const SignUp = () => {
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<FormFields>();
+  const router = useRouter();
   const [isAccept, setIsAccept] = useState(false);
   const onSubmit = (data: any) => {
     console.log(data);
@@ -152,7 +154,12 @@ const Register = () => {
         </View>
       </View>
       <View>
-        <PlainButton title="Register" onPress={handleSubmit(onSubmit)} />
+        <CustomButton
+          title="Register"
+          onPress={() => {
+            router.push("/(auth)/ProfileSetup");
+          }}
+        />
         <View className="flex flex-row justify-center items-center mt-[20px] mb-[20px]">
           <View className="w-[140px] h-[2px] bg-gray-300 rounded-lg"></View>
           <Text className="text-black text-md mx-[14px]">Or</Text>
@@ -177,4 +184,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;
