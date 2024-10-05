@@ -52,6 +52,7 @@ const SignIn = () => {
       </View>
       <View>
         <CustomButton
+          leftIcon={require("../../assets/login-icon.png")}
           title="Login"
           onPress={() => {
             router.push("/(auth)/ProfileSetup");
