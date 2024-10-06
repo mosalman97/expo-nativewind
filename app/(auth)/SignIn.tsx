@@ -39,6 +39,7 @@ const SignIn = () => {
           <View>
             {inputList?.map((item, index) => (
               <CustomInput
+                key={index}
                 leftIcon={item?.leftIcon}
                 placeHolder={item.placeholder}
                 containerStyle={{
@@ -73,9 +74,9 @@ const SignIn = () => {
         </View>
         <View className="flex flex-row justify-center mt-[30px]">
           <Text className="text-black text-md font-normal">
-            Already have an account?{" "}
+            Don’t have an account yet?{" "}
           </Text>
-          <Text className="text-purple-700 text-md font-semibold">Login</Text>
+          <Text className="text-purple-700 text-md font-bold">Register</Text>
         </View>
       </View>
     </View>

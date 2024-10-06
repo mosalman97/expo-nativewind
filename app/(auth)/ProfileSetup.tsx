@@ -53,7 +53,7 @@ const ProfileSetup = () => {
         <View className="pl-[30px] pr-[50px]">
           <View className="mb-[14px]">
             {inputList.map((item, index) => (
-              <View className="flex flex-row justify-between">
+              <View className="flex flex-row justify-between" key={index}>
                 <CustomInput
                   placeHolder={item.placeholder}
                   leftIcon={item.leftIcon}
