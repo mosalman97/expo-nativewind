@@ -41,6 +41,11 @@ const SignIn = () => {
               />
             ))}
           </View>
+          <TouchableOpacity className="w-[100%] bg-red-40 items-center">
+            <Text className="font-medium text-gray-600 text-base underline underline-offset-1">
+              Forgot your password?
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View>
@@ -48,7 +53,7 @@ const SignIn = () => {
           leftIcon={require("../../assets/login-icon.png")}
           title="Login"
           onPress={() => {
-            router.push("/(auth)/ProfileSetup");
+            router.push("/(auth)/SuccessRegistration");
           }}
         />
         <View className="flex flex-row justify-center items-center mt-[20px] mb-[20px]">
